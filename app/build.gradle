@@ -7,6 +7,10 @@ android {
     namespace 'com.example.risingcamp2week'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.example.risingcamp2week"
         minSdk 28
