@@ -6,4 +6,121 @@
     android:layout_height="match_parent"
     tools:context=".MAIN.NewActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/newtoolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="@color/white"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="중고거래 글쓰기"
+        app:titleTextColor="@color/black">
+
+        <TextView
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="완료"
+            android:textColor="@color/orange"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="right"
+            android:layout_marginEnd="16dp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:adjustViewBounds="true"
+        android:layout_margin="12dp"
+        android:background="@drawable/back_grey_radius"
+        android:src="@drawable/ic_action_camera"
+        android:scaleType="centerInside"
+        android:text="0/10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newtoolbar" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="12dp"
+        android:background="#f0f0f0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edittext_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="36dp"
+        android:background="@color/white"
+        android:hint="제목"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="18dp"
+        android:background="#f0f0f0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_title" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edittext_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="36dp"
+        android:background="@color/white"
+        android:hint="가격"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="원"
+        android:textColor="@color/black"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="12dp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4"/>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="18dp"
+        android:background="#f0f0f0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_price" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edittext_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="36dp"
+        android:background="@color/white"
+        android:hint="상세정보를 입력해 주세요"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

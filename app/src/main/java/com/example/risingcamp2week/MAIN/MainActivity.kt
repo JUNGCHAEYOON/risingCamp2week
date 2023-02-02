@@ -1,11 +1,13 @@
 package com.example.risingcamp2week.MAIN
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.example.risingcamp2week.FRAGMENT.*
 import com.example.risingcamp2week.R
@@ -36,6 +38,10 @@ class MainActivity : AppCompatActivity() {
         * 바텀 네비게이션 및 툴바의 사용은 onCreate 에서 진행
         * 화면이 전환되거나, NewActivity 로 넘어가더라도 다시 onRestart 되어 동기화 되는 것이 아님
         * */
+        /*툴바 설정 */
+//        val toolbar : Toolbar = findViewById(R.layout.toolbar)
+//        setSupportActionBar(toolbar)
+
         /* 바텀네비 바인딩 */
         binding.bottomNavigationView.setOnItemSelectedListener {
                 item -> changeFragment(
@@ -74,6 +80,7 @@ class MainActivity : AppCompatActivity() {
                 binding.fab1.setIconResource(R.drawable.ic_action_plus)
                 binding.fab1.setBackgroundColor(Color.parseColor("#ff8f12"))
                 binding.fab1.setText("글쓰기")
+                binding.fab1.setIconTintResource(R.color.white)
                 binding.fab1.extend()
             }
             clicked = !clicked
@@ -85,10 +92,17 @@ class MainActivity : AppCompatActivity() {
                 binding.fab2.visibility = View.VISIBLE
             }
         }
+
+        /* NewActivity로 전환되는 글쓰기 버튼 fab2 */
+       binding.fab2.setOnClickListener {
+            val intent = Intent(this, NewActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
         super.onStart()
+        // 홈 프래그먼트로 귀환시 중고거래 글쓰기가 추가되었을경우 업데이트
     }
 
     override fun onResume() {
