@@ -51,4 +51,15 @@
         app:layout_constraintStart_toEndOf="@+id/itemImage"
         app:layout_constraintTop_toBottomOf="@+id/itemPrice" />
 
+    <TextView
+        android:id="@+id/won"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:text="원"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toEndOf="@+id/itemPrice"
+        app:layout_constraintTop_toBottomOf="@+id/itemTitle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

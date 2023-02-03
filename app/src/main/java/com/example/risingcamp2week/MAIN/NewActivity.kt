@@ -18,6 +18,7 @@ class NewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Toast.makeText(this, "New onCreate", Toast.LENGTH_SHORT).show()
 
         /* 뷰 바인딩으로 setContentView */
         binding = ActivityNewBinding.inflate(layoutInflater)
@@ -47,7 +48,20 @@ class NewActivity : AppCompatActivity() {
 
         /* 작성글 homefragment 로 전달 shared preferences */
 
-        /* 툴바 내부 완료 버튼 클릭으로 글쓰기 */
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Toast.makeText(this, "New onStart", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Toast.makeText(this, "New onResume", Toast.LENGTH_SHORT).show()
+
+        /* 툴바 내부 완료 버튼 클릭으로 글쓰기
+        *  onResume 으로 구현!
+        *  */
         binding.finishButton.setOnClickListener{
             Toast.makeText(this, "작성 완료!", Toast.LENGTH_SHORT).show()
 
@@ -64,34 +78,25 @@ class NewActivity : AppCompatActivity() {
 
             // 메인 액티비티로 귀환, 데이터 전달
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtra("title", title)
-            intent.putExtra("price", price)
-            intent.putExtra("info", info)
             startActivity(intent)
+            // finish를 넣어줘야만 NewActivity 가 onDestroy 됨
+            finish()
         }
-
-    }
-
-    override fun onStart() {
-        super.onStart()
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        // 글을 쓰다가 뒤로 갔을때, 완료버튼 미클릭 시
-        // 해당 작성 내용이 그대로 유지됨
+        Toast.makeText(this, "NewActivity onPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
+        Toast.makeText(this, "NewActivity onStop", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+        Toast.makeText(this, "NewActivity onDestroy", Toast.LENGTH_SHORT).show()
     }
 
 }

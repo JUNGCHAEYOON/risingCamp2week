@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        Toast.makeText(this, "Main onCreate", Toast.LENGTH_SHORT).show()
 
         //뷰 바인딩으로 setContentView
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -78,6 +81,17 @@ class MainActivity : AppCompatActivity() {
             true
         }
         binding.bottomNavigationView.selectedItemId = R.id.item1 //기본 화면 홈프래그먼트
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // 홈 프래그먼트로 귀환시 중고거래 글쓰기가 추가되었을경우 업데이트
+//        Toast.makeText(this, "Main onStart", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        Toast.makeText(this, "Main onResume", Toast.LENGTH_SHORT).show()
 
         /* 플로팅 액션 버튼 */
         binding.fab1.bringToFront()         //플로팅 액션 버튼을 스크롤뷰 앞으로 보내기
@@ -103,34 +117,29 @@ class MainActivity : AppCompatActivity() {
             }else{
                 binding.fab2.visibility = View.VISIBLE
             }
+
         }
 
         /* NewActivity로 전환되는 글쓰기 버튼 fab2 */
-       binding.fab2.setOnClickListener {
+        binding.fab2.setOnClickListener {
             val intent = Intent(this, NewActivity::class.java)
             startActivity(intent)
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        // 홈 프래그먼트로 귀환시 중고거래 글쓰기가 추가되었을경우 업데이트
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onPause() {
         super.onPause()
+//        Toast.makeText(this, "Main onPause", Toast.LENGTH_SHORT).show()
     }
 
     override fun onStop() {
         super.onStop()
+//        Toast.makeText(this, "Main onStop", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
         super.onDestroy()
+//        Toast.makeText(this, "Main onDestroy", Toast.LENGTH_SHORT).show()
     }
 
     // 바텀네비 프래그먼트 교체 함수
