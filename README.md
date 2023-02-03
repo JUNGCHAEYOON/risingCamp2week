@@ -6,3 +6,7 @@
 * Activity 생명주기 활용
 
 ### 시연
+<img width="100%" src="https://user-images.githubusercontent.com/108243290/216622498-018cabde-f268-4aac-a4ff-aff792f74a14.mp4"/> 
+</br>
+
+### 스크린샷
