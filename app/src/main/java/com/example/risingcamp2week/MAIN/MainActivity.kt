@@ -1,5 +1,6 @@
 package com.example.risingcamp2week.MAIN
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -23,6 +24,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rotate_end : Animation
     private var clicked = false
 
+    //shared preference 변수 선언 및 edit 생성
+//    val sharedpref = getSharedPreferences("data", Context.MODE_PRIVATE)
+//    val edit = sharedpref.edit()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,6 +46,13 @@ class MainActivity : AppCompatActivity() {
         /*툴바 설정 */
 //        val toolbar : Toolbar = findViewById(R.layout.toolbar)
 //        setSupportActionBar(toolbar)
+
+        /*
+        * 글쓰기해서 받아온 데이터들을 sharedpreference로 저장
+        * 앱을 껐다 켜도 초기화 되지 않게!
+        * */
+        // 제목, 가격, 상세정보 저장
+
 
         /* 바텀네비 바인딩 */
         binding.bottomNavigationView.setOnItemSelectedListener {
